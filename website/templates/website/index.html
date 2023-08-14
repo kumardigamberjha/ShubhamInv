@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Investments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+    <style>
+        .swiper {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-slide:nth-child(1n) {
+            background-color: transparent;
+
+        }
+
+        .swiper-slide:nth-child(2n) {
+            background-color: transparent;
+        }
+
+        .swiper-slide:nth-child(3n) {
+            background-color: transparent;
+        }
+
+        .swiper-slide:nth-child(4n) {
+            background-color: transparent;
+        }
+
+        .swiper-slide:nth-child(5n) {
+            background-color: transparent;
+        }
+
+        .search-box {
+            width: fit-content;
+            height: fit-content;
+            position: relative;
+        }
+
+        .input-search {
+            height: 50px;
+            width: 50px;
+            border-style: none;
+            padding: 10px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            outline: none;
+            border-radius: 25px;
+            transition: all .5s ease-in-out;
+            background-color: darkgrey;
+            padding-right: 40px;
+            color: #fff;
+        }
+
+        .input-search::placeholder {
+            color: rgba(255, 255, 255, .5);
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-weight: 100;
+        }
+
+        .btn-search {
+            width: 50px;
+            height: 50px;
+            border-style: none;
+            font-size: 20px;
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+            position: absolute;
+            right: 0px;
+            color: #ffffff;
+            background-color: black;
+            pointer-events: painted;
+        }
+
+        .btn-search:focus~.input-search {
+            width: 300px;
+            border-radius: 0px;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, .5);
+            transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+        }
+
+        .input-search:focus {
+            width: 300px;
+            border-radius: 0px;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, .5);
+            transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-black fixed-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'markets_index' %}">Markets</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+                <div class="search-box ">
+                    <button class="btn-search"><ion-icon name="search-outline"></ion-icon></button>
+                    <input type="text" class="input-search" placeholder="Type to Search...">
+                </div>
+                <!-- <div class="contact mt-2" style="padding-left: 1rem;">
+                    <a href="" style="font-size: 40px;color:#fff;"><ion-icon name="person-circle-sharp"></ion-icon></a>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    <!-- Social Media Icons -->
+    <div id="mybutton" class="text-center" style="overflow-y: hidden;">
+        <a href="https://api.whatsapp.com/send?phone=" class="feedback">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                style="fill: rgb(255, 255, 255);msFilter:dd;">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 0 0-.429-.008.826.826 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263">
+                </path>
+            </svg>
+        </a>
+    </div>
+    <div id="mybutton-1" class="text-center" style="overflow-y: hidden;">
+        <a class="facebook" href="" class="feedback1"
+            style="background-color: rgb(90, 169, 255);  padding:0.7em 0.5em 1em;border-radius: 5;"><svg
+                xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                style="fill: rgb(255, 255, 255);">
+                <path
+                    d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z">
+                </path>
+            </svg>
+
+        </a>
+    </div>
+    <div id="mybutton-2" class="text-center" style="overflow-y: hidden;">
+        <a class="instagram" href="" class="feedback2"
+            style="background-color:#e4405f;  padding:0.7em 0.5em 1em;border-radius: 5px;"><svg
+                xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
+                <path
+                    d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z">
+                </path>
+                <circle cx="16.806" cy="7.207" r="1.078"></circle>
+                <path
+                    d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z">
+                </path>
+            </svg>
+        </a>
+    </div>
+    <!-- Headers -->
+    <div class="box"
+        style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../../../static/images/austin-distel-DfjJMVhwH_8-unsplash (1).jpg'); background-attachment:fixed; background-repeat:no-repeat;background-size:cover;background-position:center;height:100vh; ">
+        <div class="container" style="position: relative;">
+            <div class="row">
+                <div id="animation-section" class="col-sm-6 animate__animated animate__fadeInLeft"
+                    style="position: relative;">
+                    <p style="margin-top: 7em;font-weight:600;color:rgb(88,
+                        209, 88);font-size:2em;">Shubham
+                        Investments:
+                    </p>
+                    <p style="font-size:20px;">Pioneering a revolution in financial growth by crafting innovative,
+                        personalized strategies that redefine individual wealth journeys.</p>
+                    <div class="container">
+                        <button class="button" type="submit">FIND MORE</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="box"
+        style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../../../static/images/m-ZzOa5G8hSPI-unsplash.jpg'); background-attachment:fixed; background-repeat:no-repeat;background-size:cover;background-position:center;height:100vh ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 animate__animated animate__fadeInRight"
+                    style="position: relative;animation-delay: 2s;">
+                    <p style="margin-top: 6em;font-weight:600;color:rgb(88, 209, 88);font-size:2em;">Empowering
+                        Investors:
+                    </p>
+                    <p style="font-size:20px;"> Elevating investors' potential, enabling them to reach new pinnacles of
+                        financial success and prosperity</p>
+                    <div class="container">
+                        <button class="button" type="submit">FIND MORE</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="box"
+        style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../../../static/images/tech-daily-ztYmIQecyH4-unsplash.jpg'); background-attachment:fixed; background-repeat:no-repeat;background-size:cover;background-position:center;height:100vh ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 animate__animated animate__fadeInLeft"
+                    style="position: relative;animation-delay: 4s;">
+                    <p style="margin-top: 5em;font-weight:600;color:rgb(88, 209, 88);font-size:2em;">Tech-Driven
+                        Strategies:
+                    </p>
+                    <p style="font-size:20px;"> Employing technology to unlock informed investment choices, harnessing
+                        data-driven insights for strategic decision-making with confidence.</p>
+                    <div class="container">
+                        <button class="button" type="submit">FIND MORE</button>
+                    </div>
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Extra Information using Cards -->
+    <div class="add-on-information bg-black mb-5 pb-5">
+        <div class="container">
+            <p class="heading text-center">Our daily <span class="highlight">blogs. </span>
+            </p>
+            <div class="row">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title blog-title">Wall Street cautious on 'frothy' stocks, warn bitcoin
+                            </h5>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="by-date">By <a href="">Reuters</a></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <li class="by-date">Jan 8, 2023</li>
+                                </div>
+                            </div>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn " style="letter-spacing: 1px;">Read More<ion-icon
+                                    name="arrow-forward-outline" class="mt-2 mx-2"></ion-icon> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title blog-title">Will AUD/USD hit 0.8000 in the foreseeable future?</h5>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="by-date">By <a href="">JFD Team</a></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <li class="by-date">Jan 4, 2023</li>
+                                </div>
+                            </div>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn " style="letter-spacing: 1px;">Read More<ion-icon
+                                    name="arrow-forward-outline" class="mt-2 mx-2"></ion-icon> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title blog-title">How can you use volatility to your advantage?</h5>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="by-date">By <a href="">Barry Norman</a></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <li class="by-date">Jan 2, 2023</li>
+                                </div>
+                            </div>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn " style="letter-spacing: 1px;">Read More<ion-icon
+                                    name="arrow-forward-outline" class="mt-2 mx-2"></ion-icon> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials -->
+    <div class="testimonials bg-black " style="padding-bottom:1rem;">
+        <p class="heading text-center">Our Clients <span class="highlight"> About Us</span> </p>
+        <div class="container" style="padding: 1rem; ">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <img src="{% static 'images/9019830-removebg-preview.png' %}" alt=""
+                        style="max-width: 100%; height: auto; border-radius: 15px;">
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="swiper mySwiper2 " style="border-radius: 15px;margin-top:-50px; height: 600px;">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide text-secondary-emphasis"
+                                style="display: flex;flex-direction:column;">
+                                <img src="{% static 'images/5 star.png' %}" alt=""
+                                    style="width: 50%;height:15%;margin-bottom:-70px;">
+                                <q class="mb-2 " style="padding:1rem;color:whitesmoke;">
+                                    I was intrigued by the innovative investment options this company offers. As a
+                                    first-time investor, I found their website easy to navigate and packed with
+                                    information that helped me understand my choices better. The team's responsiveness
+                                    to my inquiries gave me confidence in their commitment to transparency. Excited to
+                                    see where this journey takes me!
+                                </q>
+                                <p class="author" style="color: whitesmoke;"> ~ Archit Deora</p>
+                            </div>
+                            <div class="swiper-slide text-secondary-emphasis"
+                                style="display: flex;flex-direction:column;">
+                                <img src="{% static 'images/4.5 star.png' %}" alt=""
+                                    style="width: 50%;height:10%;margin-bottom:-30px;">
+                                <q class="mb-2 " style="padding:1rem;color:whitesmoke;">
+                                    Impressed by the team's industry expertise and the thoroughness of their investment
+                                    strategy. The website is professionally designed and provides a clear breakdown of
+                                    potential returns and risks. They're not just seeking capital; they're building
+                                    relationships. Looking forward to being a part of their growth story.
+                                </q>
+                                <p class=" author" style="color: whitesmoke;"> ~ Ashish Thakur</p>
+                            </div>
+                            <div class="swiper-slide text-secondary-emphasis"
+                                style="display: flex;flex-direction:column;">
+                                <img src="{% static 'images/4 star .png' %}" alt=""
+                                    style="width: 50%;height:10%;margin-bottom:-30px;">
+                                <q class="mb-2 " style="padding:1rem;color:whitesmoke;">
+                                    I appreciate the user-friendly website that explains investments in a
+                                    straightforward manner. The interactive tools and resources helped me visualize
+                                    potential outcomes based on my preferences. The company's dedication to educating
+                                    investors is evident. As a cautious investor, I'm excited to have found an entry
+                                    point with such a promising company.
+                                </q>
+                                <p class="author" style="color: whitesmoke;"> ~ Digamber Jha</p>
+                            </div>
+                            <div class="swiper-slide text-secondary-emphasis"
+                                style="display: flex;flex-direction:column;">
+                                <img src="{% static 'images/4.5 star.png' %}" alt=""
+                                    style="width: 50%;height:10%;margin-bottom:-30px;">
+                                <q class="mb-2 " style="padding:1rem;color:whitesmoke;">
+                                    Having been in the investment world for years, I was intrigued by this fresh
+                                    approach. The team's emphasis on ethical investments aligns with my values. The
+                                    website's responsive design makes it easy to access information on the go. They've
+                                    taken a complex topic and made it accessible to all levels of investors.
+                                </q>
+                                <p class="author" style="color: whitesmoke;"> ~ Shubham Sharma</p>
+                            </div>
+                            <div class="swiper-slide text-secondary-emphasis"
+                                style="display: flex;flex-direction:column;">
+                                <img src="{% static 'images/4 star .png' %}" alt=""
+                                    style="width: 50%;height:10%;margin-bottom:-30px;">
+                                <q class="mb-2 " style="padding:1rem;color:whitesmoke;">
+                                    Navigating the world of investments has always seemed daunting, but this company's
+                                    website changed that perception. The personalized investment options and the team's
+                                    willingness to discuss strategies set them apart. I feel like my financial goals are
+                                    truly understood and supported by their services.
+                                </q>
+                                <p class="author" style="color: whitesmoke;"> ~ Jane Doe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+
+    {% block faq  %}
+    <!-- Frequently Answered -->
+    <div class="faq-container container">
+        <p class="heading text-center">Frequently Answered <span class="highlight">Questions. </span>
+        </p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 ">
+                    <div class="faq-item">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li> What is the investment opportunity?</li>
+                            </div>
+                            <div class="faq-answer">Our investment opportunity offers potential investors a chance to be
+                                part of our growth
+                                journey and benefit from the success of our endeavors.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li> How do I invest in your company?</li>
+                            </div>
+                            <div class="faq-answer">Investing with us is a straightforward process. After expressing
+                                interest, we guide you through due diligence, legal documentation, and finalizing your
+                                investment amount.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li> What is the minimum investment amount?</li>
+                            </div>
+                            <div class="faq-answer">The minimum investment amount is [specify the amount]. This ensures
+                                that a wide range of investors can participate and benefit from our opportunity.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li> What are the potential returns on my investment?</li>
+                            </div>
+                            <div class="faq-answer">We project potential returns based on [historical
+                                performance/projections]. While past performance is not indicative of future results, we
+                                strive to provide competitive returns to our investors.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li> What are the risks associated with this investment?</li>
+                            </div>
+                            <div class="faq-answer">All investments carry inherent risks. We are committed to
+                                transparently outlining these risks in our investment materials. These may include
+                                market fluctuations, regulatory changes, and industry challenges.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li> What is the investment timeline?</li>
+                            </div>
+                            <div class="faq-answer">The investment timeline can vary depending on the opportunity.
+                                Typically, investors can expect their funds to be invested for [timeframe] before
+                                potential returns are realized.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li> How will my investment be used by the company?</li>
+                            </div>
+                            <div class="faq-answer">Your investment will be used to support key initiatives such as
+                                [expansion/product development/marketing]. Our goal is to strategically allocate funds
+                                for maximum growth.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <li>Do I have any ownership or voting rights as an investor?</li>
+                            </div>
+                            <div class="faq-answer">Depending on the investment type, you might have ownership stakes
+                                and potentially voting rights. We value your participation and strive to ensure your
+                                interests are represented.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>What is the exit strategy for investors?</li>
+                        </div>
+                        <div class="faq-answer">Our exit strategies might involve [acquisitions/IPOs/partnerships].
+                            We're committed to creating opportunities for investors to realize returns on their
+                            investment.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>Can I see financial statements or projections for the company?</li>
+                        </div>
+                        <div class="faq-answer">Absolutely, we provide access to relevant financial documents and
+                            projections, offering transparency into our financial performance and growth prospects.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>Are there any fees associated with the investment?</li>
+                        </div>
+                        <div class="faq-answer">While we strive to keep fees minimal, there might be charges associated
+                            with investment processing and management. These will be outlined in our investment
+                            materials.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>Is this investment open to international investors?</li>
+                        </div>
+                        <div class="faq-answer">Yes, our investment opportunity is open to investors from around the
+                            world, subject to compliance with relevant regulations.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>How will I receive updates about my investment?</li>
+                        </div>
+                        <div class="faq-answer">We provide regular updates via email or through a secure investor
+                            portal, ensuring you're kept informed about company progress and developments.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>Can I invest through a retirement account or trust?</li>
+                        </div>
+                        <div class="faq-answer">Yes, we accommodate investments through retirement accounts and trusts,
+                            offering you flexibility in managing your investments.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>Is my personal information kept confidential and secure?</li>
+                        </div>
+                        <div class="faq-answer">Your personal and financial information is handled with the utmost care
+                            and in accordance with industry standards and privacy regulations.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <li>Who can I contact for more information?</li>
+                        </div>
+                        <div class="faq-answer">For further inquiries, please feel free to contact our Investor
+                            Relations team at [contact details]. We're here to assist you with any questions you might
+                            have.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock faq %}
+    <!-- Footer -->
+    <div class="footer bg-black mt-3" style="color: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="{% static '/images/indian-rupee-money-bag_23-2148019023.avif' %}"
+                        class="img-fluid logo-img mt-2 mx-4" style="height: 50px; width:50px; border-radius:50%" />
+                </div>
+
+                <div class="col-sm-4 social-links mt-4">
+                    <a href="" class="facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="" class="instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="" class="twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="" class="youtube"><ion-icon name="logo-youtube"></ion-icon></a>
+                </div>
+
+                <div class="col-sm-4 company-links mt-4 ">
+                    <a href="" class="footer-links">Company News</a>
+                    <a href="" class="footer-links" style="padding-left: 1rem;">Partnership</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5 class="mt-3">Markets</h5>
+                    <ul class="footer-list">
+                        <li><a href="" class="footer-links">Share CFDs</a></li>
+                        <li><a href="" class="footer-links">Forex</a> </li>
+                        <li><a href="" class="footer-links">Indices</a></li>
+                        <li><a href="" class="footer-links">Commodities</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5 class="mt-3">Trading Platforms</h5>
+                    <ul class="footer-list">
+                        <li><a href="" class="footer-links">Web Platform</a></li>
+                        <li><a href="" class="footer-links">Trading Apps</a></li>
+                        <li><a href="" class="footer-links">MetaTrade 5</a></li>
+                        <li><a href="" class="footer-links">Compare Features</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5 class="mt-3">Account Types</h5>
+                    <ul class="footer-list">
+                        <li><a href="" class="footer-links">Demo Account</a></li>
+                        <li><a href="" class="footer-links">Standard Account</a></li>
+                        <li><a href="" class="footer-links">ECN Account</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-sm-3">
+                    <h5 class="mt-3">Learn To Trade</h5>
+                    <ul class="footer-list">
+                        <li><a href="" class="footer-links">News And Trade Ideas</a></li>
+                        <li><a href="" class="footer-links">Trading Strategy</a></li>
+                        <li><a href="" class="footer-links">Forex Trading Course</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>Copyright ©2021 Liquid Inc. All Rights Reserved.</p>
+                </div>
+                <div class="col-sm-8">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="container pb-5">
+            <h6><strong> DISCLAIMER </strong></h6>
+            <p>Engaging in the trading of derivatives and leveraged products involves significant risk, which
+                includes
+                the
+                potential of losing an amount well beyond your initial investment. This activity may not be
+                appropriate
+                for
+                all individuals. Prior to making any choices regarding a financial product, it is essential to
+                access
+                and
+                review our Product Disclosure Statement (PDS) and Financial Services Guide (FSG), both of which can
+                be
+                found
+                on our official website. If needed, it's advisable to seek unbiased guidance from a financial
+                expert.
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js" defer></script>
+
+    <script src="{% static 'js/main.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</body>
+
+</html>

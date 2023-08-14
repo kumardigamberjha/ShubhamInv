@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    color: white;
+    background-color: black;
+}
+.nav-link, .navbar-brand{
+    color:whitesmoke;
+}
+.nav-link:hover,:active, .navbar-brand:hover,:active{
+    color: lightgray;
+    font-weight: 500;
+}
+.button{
+    padding: 5px 10px 5px;
+    color: white;
+    border: 1px solid darkolivegreen;
+    background-color: black;
+    width: 50%;
+    transition: all 0.1s;
+}
+.button:hover{
+    padding: 5px 10px 5px;
+    color: rgb(0, 0, 0);
+    border:1px solid black;
+    background-color: darkolivegreen;
+}
+
+.heading{
+    font-size: 30px;
+    font-weight: 700;
+    padding-top: 1rem;
+    text-transform: capitalize;
+}
+.highlight{
+    color:#ffbd07;
+    text-transform: capitalize;
+}
+.card{
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s;
+}
+.card:hover{
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+}
+.add-on-information .blog-title{
+    font-weight: 900;
+    text-transform: capitalize;
+}
+.by-date, .by-date a{
+    color: darkslategrey;
+    font-size: small;
+    font-style: italic;
+}
+.animate__animated {
+    animation-duration: 1s;
+    opacity: 0; 
+}
+
+.footer-list{
+    list-style-type:none;
+}
+.footer-list a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 15px;
+}
+.footer h5{
+    padding-left: 30px;
+    font-weight: 600;
+}
+.footer .social-links{
+    margin-top: 1rem;
+    font-size: larger;
+    color: whitesmoke;
+    padding-left: 1.2rem;
+}
+.social-links a{
+    padding-left: 1.1rem;
+    color: whitesmoke;
+    text-decoration: none;
+}
+.facebook:hover{
+    color: blue;
+}
+.instagram:hover{
+    color: #C13584;
+}
+.twitter:hover{
+    color: darkcyan;
+}
+.youtube:hover{
+    color:#FF0000;
+}
+.company-links a{
+    padding-left: 4rem;
+    text-decoration: none;
+    color: whitesmoke;
+}
+.footer-links:hover{
+    color: darkgray;
+    font-style: oblique;
+}
+#mybutton{
+    position: fixed;
+    bottom: 350px;
+    right: 0;
+    z-index: 10;
+  } 
+  
+#mybutton-1{
+    position: fixed;
+    bottom: 300px;
+    right: 0;
+    z-index: 10;
+}
+#mybutton-2{
+    position: fixed;
+    bottom: 250px;
+    right: 0;
+    z-index: 10;
+}
+  
+.feedback{
+    background-color: #04cc25;
+    color: whitesmoke;
+    padding:0.7em 0.5em 1em;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    border: none;
+    text-decoration: none;
+}
+  
+.feedback1{
+    color: whitesmoke;
+    text-align: center;
+    justify-content: center;
+    border: none;
+    text-decoration: none;
+}
+  
+.feedback2{
+    color: whitesmoke;
+    text-align: center;
+    justify-content: center;
+    border: none;
+    text-decoration: none;
+}
+.faq-container {
+    margin-top: -40px;
+    
+}
+.faq-item {
+    margin-bottom: 20px;
+}
+.faq-question {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 1em;
+}
+.faq-answer {
+    display: none;
+    color:darkgray;
+    font-style: italic;
+    font-size: 0.9em;
+}

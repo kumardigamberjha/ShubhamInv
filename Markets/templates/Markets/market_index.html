@@ -1,0 +1,82 @@
+{% extends 'website/index.html' %}
+
+{% block content %}
+<style>
+    .card {
+        background: rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: whitesmoke;
+    }
+</style>
+
+<!-- NIFTY 50 -->
+<div class="container " style="margin-top: 100px; margin-bottom: 100px;">
+    <h1 class="text-center mb-3">STOCKS</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <h5>
+                    NIFTY 50
+                </h5>
+            </div>
+            <div class="col-sm-8"></div>
+            <div class="col-sm-2">
+                <a style="padding-left: 5em;">
+                    All Indices
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for stock_name, exchange in Arr.items %}
+        <div class="col-md-3 mt-3 mb-5">
+            <a href="{% url 'detailinfostock' %}?name={{ stock_name }}&exchange={{ exchange }}">
+                <div class="card p-4" style="width: 18rem;height: 8rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ stock_name }}</h5>
+                        <p class="card-text">Rs. {{ exchange }}</p>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!--NIFTY NEXT 50 -->
+    <div class="container " style="margin-top: 80px; margin-bottom: 100px;">
+        <h1 class="text-center mb-3">STOCKS</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h5>
+                        NIFTY NEXT 50
+                    </h5>
+                </div>
+                <div class="col-sm-8"></div>
+                <div class="col-sm-2">
+                    <a style="padding-left: 5em;">
+                        All Indices
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for stock_name, exchange in Arr.items %}
+            <div class="col-md-3 mt-3 mb-5">
+                <div class="card p-4" style="width: 18rem;height: 8rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ stock_name }}</h5>
+                        <p class="card-text">Rs. {{ exchange }}</p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% endblock content %}
